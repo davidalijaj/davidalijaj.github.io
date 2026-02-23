@@ -1,73 +1,67 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Impressum – David Alijaj</title>
-  <meta name="description" content="Impressum von David Alijaj – Vodafone Vertriebspartner (VP-KN 70732501)."/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <meta name="description" content="Impressum von David Alijaj (Vodafone Vertriebspartner). Region 56564 Neuwied." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-
   <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand"><div class="dot"></div><div><strong>David Alijaj</strong><small>Impressum</small></div></div>
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <div class="brand-dot"></div>
+        <div style="min-width:0">
+          <strong>David Alijaj</strong>
+          <span>Offizieller Vodafone Vertriebspartner · VP-KN 70732501 · Region: 56564 Neuwied</span>
+        </div>
+      </a>
       <nav class="nav">
-        <a class="chip" href="index.html">Start</a>
-        <a class="chip" href="leistungen.html">Leistungen</a>
-        <a class="chip" href="ablauf.html">Ablauf & Sicherheit</a>
-        <a class="chip" href="kontakt.html">Kontakt</a>
+        <a data-nav href="index.html">Start</a>
+        <a data-nav href="leistungen.html">Leistungen</a>
+        <a data-nav href="ablauf.html">Ablauf & Sicherheit</a>
+        <a data-nav href="kontakt.html">Kontakt</a>
+        <a data-nav href="impressum.html">Impressum</a>
+        <a data-nav href="datenschutz.html">Datenschutz</a>
       </nav>
     </div>
   </div>
 
   <main class="container">
-    <section class="section">
-      <div class="panel">
-        <div class="panel-inner">
-          <h1 class="h1">Impressum</h1>
-          <p class="sub">Angaben gemäß § 5 TMG</p>
-        </div>
-      </div>
+    <section class="pagehead reveal">
+      <h1 class="title">Impressum</h1>
+      <p class="lead">Angaben gemäß § 5 TMG.</p>
     </section>
 
-    <section class="section whiteband panel" style="padding:0">
-      <div class="panel-inner">
-        <div class="card">
-          <h2 style="margin:0 0 10px 0">Anbieter</h2>
-          <p class="muted" style="margin:0;line-height:1.9">
-            <b>David Alijaj</b><br/>
-            56564 Neuwied<br/><br/>
+    <section class="section">
+      <div class="card reveal">
+        <h3>Angaben</h3>
+        <p style="color:var(--muted);line-height:1.8">
+          <b>David Alijaj</b><br>
+          <b>Region:</b> 56564 Neuwied<br><br>
 
-            <b>Kontakt</b><br/>
-            Telefon: 0152 22178630<br/>
-            E-Mail: davidalijaj.vd@gmail.com<br/><br/>
+          <b>Kontakt</b><br>
+          Telefon: 0152 22178630<br>
+          E-Mail: davidalijaj.vd@gmail.com<br><br>
 
-            <b>Hinweis</b><br/>
-            Selbstständiger Vertriebspartner im Auftrag der Vodafone GmbH.<br/>
-            VP-KN: 70732501
-          </p>
+          <b>Hinweis</b><br>
+          Selbstständiger Vertriebspartner im Auftrag der Vodafone GmbH.<br>
+          Keine Niederlassung der Vodafone GmbH.<br><br>
 
-          <div class="hr"></div>
-
-          <h3 style="margin:0 0 8px 0">Haftung für Inhalte</h3>
-          <p class="muted" style="margin:0;line-height:1.9">
-            Inhalte wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehme ich keine Gewähr.
-          </p>
-
-          <div class="hr"></div>
-
-          <h3 style="margin:0 0 8px 0">Haftung für Links</h3>
-          <p class="muted" style="margin:0;line-height:1.9">
-            Diese Website enthält ggf. Links zu externen Websites Dritter. Auf deren Inhalte habe ich keinen Einfluss,
-            daher kann ich für diese fremden Inhalte keine Gewähr übernehmen.
-          </p>
-        </div>
-
-        <div class="copy">© <span data-year></span> davidalijaj.de</div>
+          <b>Haftung für Inhalte</b><br>
+          Inhalte wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehme ich keine Gewähr.
+        </p>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="inner container">
+      <div class="copy">© <span id="year"></span> davidalijaj.de</div>
+    </div>
+  </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
