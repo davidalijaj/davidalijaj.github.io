@@ -1,71 +1,557 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Alijaj – Vodafone Vertriebspartner</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #ffffff;
-    text-align: center;
-}
-.header {
-    background-color: #E60000;
-    color: white;
-    padding: 40px 20px;
-}
-.section {
-    padding: 40px 20px;
-}
-h1 {
-    margin: 0;
-}
-.button {
-    background-color: #E60000;
-    color: white;
-    padding: 15px 25px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.footer {
-    background-color: #f2f2f2;
-    padding: 20px;
-    font-size: 14px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Alijaj – Vodafone Ansprechpartner</title>
+  <meta name="description" content="David Alijaj – Vodafone Vertriebspartner. Beratung zu Internet, Mobilfunk, Glasfaser, Vertragsoptimierung & Router-Einrichtung. Region: 56564 Neuwied. Kontakt: 0152 22178630." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="David Alijaj – Vodafone Ansprechpartner" />
+  <meta property="og:description" content="Beratung & Unterstützung rund um Internet, Mobilfunk & Glasfaser. Direktkontakt: 0152 22178630." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davidalijaj.de" />
+
+  <style>
+    :root{
+      --vodafone:#E60000;
+      --bg:#0b0c10;
+      --card:#111319;
+      --muted:#a9b0be;
+      --text:#f3f5f9;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.40);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 18% 0%, rgba(230,0,0,.22), transparent 60%),
+        radial-gradient(900px 500px at 92% 10%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, #07080b 0%, #0b0c10 50%, #07080b 100%);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:22px}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(7,8,11,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:14px 22px;max-width:1100px;margin:0 auto
+    }
+    .brand{display:flex;align-items:center;gap:10px;min-width:0}
+    .dot{
+      width:10px;height:10px;border-radius:99px;background:var(--vodafone);
+      box-shadow:0 0 0 7px rgba(230,0,0,.12)
+    }
+    .brand strong{font-size:14px;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand span{display:block;font-size:12px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:10px 12px;border-radius:999px;
+      font-size:12px;text-decoration:none;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .chip:hover{border-color:rgba(230,0,0,.40); transform: translateY(-1px); background:rgba(255,255,255,.06)}
+
+    header.hero{padding:34px 0 10px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 240px at 15% 0%, rgba(230,0,0,.35), transparent 55%);
+      pointer-events:none;
+    }
+
+    .hero-title{position:relative;display:flex;flex-direction:column;gap:12px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase
+    }
+
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      background:rgba(230,0,0,.14);
+      border:1px solid rgba(230,0,0,.35);
+      color:#fff;
+      padding:10px 12px;border-radius:999px;
+      width:max-content;
+      font-size:12px;
+    }
+    .badge b{font-weight:800}
+
+    .hero-head{
+      display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+    }
+    .avatar{
+      width:96px;height:96px;border-radius:22px;
+      object-fit:cover;object-position:center;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      background: rgba(255,255,255,.05);
+      transform: translateZ(0);
+    }
+    @media (max-width:520px){
+      .avatar{width:84px;height:84px;border-radius:18px}
+    }
+
+    h1{margin:0;font-size:42px;line-height:1.05;letter-spacing:-.02em}
+    @media (max-width:520px){h1{font-size:34px}}
+
+    .sub{margin:0;color:#d8deea;max-width:70ch;line-height:1.55}
+    .sub b{color:#fff}
+
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;position:relative}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 16px;border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;font-weight:750;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    .btn.primary{
+      background:var(--vodafone);
+      border-color:rgba(230,0,0,.85);
+      box-shadow:0 12px 34px rgba(230,0,0,.22);
+    }
+    .btn.ghost:hover{border-color:rgba(230,0,0,.35); transform:translateY(-1px); background:rgba(255,255,255,.06)}
+    .btn.primary:hover{transform:translateY(-1px); box-shadow:0 16px 40px rgba(230,0,0,.30)}
+
+    .mini{
+      margin-top:14px;
+      display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+      position:relative
+    }
+    @media (max-width:800px){.mini{grid-template-columns:1fr 1fr}}
+    @media (max-width:520px){.mini{grid-template-columns:1fr}}
+
+    .stat{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 14px;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .stat:hover{transform: translateY(-1px); border-color: rgba(230,0,0,.28)}
+    .stat b{display:block;font-size:14px}
+    .stat span{display:block;color:var(--muted);font-size:12px;margin-top:4px;line-height:1.35}
+
+    .side-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .side-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 220px at 100% 0%, rgba(230,0,0,.20), transparent 55%);
+      pointer-events:none;
+    }
+    .side-card h3{margin:0 0 10px 0;font-size:16px;position:relative}
+
+    .list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;position:relative}
+    .li{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .check{
+      width:22px;height:22px;border-radius:8px;
+      background:rgba(230,0,0,.18);
+      border:1px solid rgba(230,0,0,.35);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+      font-weight:900;
+    }
+    .li b{display:block;font-size:13px}
+    .li span{display:block;color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35}
+
+    section{padding:18px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:hover{transform: translateY(-1px); border-color: rgba(230,0,0,.22)}
+    .card h3{margin:0 0 8px 0}
+    .muted{color:var(--muted);line-height:1.65}
+    .divider{height:1px;background:var(--line);margin:18px 0}
+
+    .trust{
+      display:grid;grid-template-columns:1fr 1fr;gap:14px
+    }
+    @media (max-width:900px){.trust{grid-template-columns:1fr}}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 12px;
+      background:rgba(255,255,255,.03);
+      font-size:12px;color:#dfe6f5;
+      width:max-content;
+    }
+    .pill b{font-weight:900}
+
+    .contact{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:stretch
+    }
+    @media (max-width:900px){.contact{grid-template-columns:1fr}}
+    .contact .card::before{
+      content:"";
+      position:absolute;inset:-2px;
+      background: radial-gradient(640px 260px at 0% 0%, rgba(230,0,0,.22), transparent 55%);
+      pointer-events:none;
+    }
+    .contact .content{position:relative}
+    .kline{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+    .small{font-size:12px;color:var(--muted);line-height:1.6}
+
+    footer{
+      padding:28px 0 40px;
+      border-top:1px solid var(--line);
+      background: rgba(7,8,11,.55);
+      backdrop-filter: blur(10px);
+      margin-top:18px;
+    }
+    .footer-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:16px
+    }
+    @media (max-width:900px){.footer-grid{grid-template-columns:1fr}}
+
+    details{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:12px 14px;
+    }
+    summary{cursor:pointer;font-weight:850}
+    details p{margin:10px 0 0 0;color:var(--muted);line-height:1.65}
+    .copyright{margin-top:14px;color:var(--muted);font-size:12px}
+
+    /* Floating */
+    .float{
+      position:fixed; right:16px; bottom:16px; z-index:50;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .fab{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 16px;border-radius:999px;
+      text-decoration:none;font-weight:900;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .fab:hover{transform: translateY(-1px); box-shadow: 0 22px 60px rgba(0,0,0,.42)}
+    .fab.primary{background:var(--vodafone);border-color:rgba(230,0,0,.85)}
+    .fab span{font-size:13px}
+  </style>
 </head>
+
 <body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <strong>David Alijaj</strong>
+          <span>Vodafone Vertriebspartner · VP-KN: 70732501 · 56564 Neuwied</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="chip" href="#leistungen">Leistungen</a>
+        <a class="chip" href="#vertrauen">Vertrauen</a>
+        <a class="chip" href="#kontakt">Kontakt</a>
+        <a class="chip" href="#impressum">Impressum</a>
+        <a class="chip" href="#datenschutz">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
 
-<div class="header">
-<h1>David Alijaj</h1>
-<p>Vodafone Vertriebspartner</p>
-<p>Selbstständiger Vertriebspartner im Auftrag der Vodafone GmbH</p>
-</div>
+  <div class="container">
+    <header class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-title">
+            <div class="kicker">Schnell · Seriös · Persönlich</div>
 
-<div class="section">
-<h2>Meine Leistungen</h2>
-<p>✔ Internet & Festnetz<br>
-✔ Mobilfunk<br>
-✔ Glasfaser<br>
-✔ Vertragsoptimierung<br>
-✔ Router-Einrichtung</p>
+            <div class="hero-head">
+              <img class="avatar" src="david.jpg" alt="David Alijaj (Vodafone Vertriebspartner)" />
+              <div>
+                <div class="badge">Selbstständiger Vertriebspartner <b>im Auftrag der Vodafone GmbH</b></div>
+                <h1 style="margin-top:10px;">Ihr Vodafone Ansprechpartner.</h1>
+              </div>
+            </div>
 
-<h2>Kontakt</h2>
-<p>📞 0152 22178630<br>
-📧 david.alijaj.vd@gmail.com<br>
-VP-KN: 70732501</p>
+            <p class="sub">
+              Ich unterstütze dich rund um <b>Internet & Festnetz</b>, <b>Mobilfunk</b>, <b>Glasfaser</b> und <b>Vertragsoptimierung</b>.
+              Auf Wunsch helfe ich auch bei der <b>Router-Einrichtung</b> – klar erklärt und ohne Druck.
+            </p>
 
-<a class="button" href="tel:015222178630">Jetzt anrufen</a>
-</div>
+            <div class="cta-row">
+              <a class="btn primary" href="tel:015222178630" aria-label="Jetzt anrufen">📞 Jetzt anrufen</a>
+              <a class="btn ghost" href="https://wa.me/4915222178630?text=Hallo%20David%2C%20ich%20habe%20eine%20Frage%20zu%20Vodafone." target="_blank" rel="noopener" aria-label="WhatsApp">💬 WhatsApp</a>
+              <a class="btn ghost" href="mailto:david.alijaj.vd@gmail.com" aria-label="E-Mail senden">✉️ E-Mail</a>
+              <a class="btn ghost" href="#kontakt" aria-label="Zum Kontaktbereich">✅ Kontakt</a>
+            </div>
 
-<div class="footer">
-Impressum folgt | Datenschutzerklärung folgt
-</div>
+            <div class="mini" aria-label="Schnellinfo">
+              <div class="stat">
+                <b>VP-KN</b>
+                <span>70732501 (Verifizierung möglich)</span>
+              </div>
+              <div class="stat">
+                <b>Region</b>
+                <span>56564 Neuwied & Umgebung</span>
+              </div>
+              <div class="stat">
+                <b>Direkt erreichbar</b>
+                <span>Telefon & WhatsApp – schnelle Rückmeldung</span>
+              </div>
+              <div class="stat">
+                <b>Hilfe inklusive</b>
+                <span>Einrichtung & Problemlösung, wenn’s klemmt</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <aside class="side-card" id="leistungen">
+          <h3>Meine Leistungen</h3>
+          <ul class="list">
+            <li class="li">
+              <div class="check">✓</div>
+              <div>
+                <b>Internet & Festnetz</b>
+                <span>Beratung, Wechsel, Rufnummernmitnahme</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="check">✓</div>
+              <div>
+                <b>Mobilfunk</b>
+                <span>Tarife, Geräte, Datenvolumen, SIM/eSIM</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="check">✓</div>
+              <div>
+                <b>Glasfaser</b>
+                <span>Verfügbarkeit, Anschluss & Umstellung</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="check">✓</div>
+              <div>
+                <b>Vertragsoptimierung</b>
+                <span>Bestehende Verträge prüfen & verbessern</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="check">✓</div>
+              <div>
+                <b>Router-Einrichtung</b>
+                <span>WLAN, Geräte verbinden, Basics einstellen</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="divider"></div>
+          <p class="muted" style="margin:0; position:relative">
+            Hinweis: Ich bin <b>selbstständiger Vertriebspartner</b> und handle im Auftrag der <b>Vodafone GmbH</b>.
+          </p>
+        </aside>
+      </div>
+    </header>
+
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h3>Warum ich?</h3>
+          <p class="muted">
+            Ich erkläre dir alles verständlich – ohne Fachchinesisch. Transparenz steht an erster Stelle.
+          </p>
+          <div class="pill">✅ <b>klar</b> · ✅ <b>ehrlich</b> · ✅ <b>schnell</b></div>
+        </div>
+        <div class="card">
+          <h3>Schnellkontakt</h3>
+          <p class="muted">
+            Am schnellsten per WhatsApp. Du kannst auch ein Foto vom Schreiben/Router senden – ich helfe dir direkt.
+          </p>
+          <div class="pill">💬 <b>WhatsApp</b> · 📞 <b>Anruf</b> · ✉️ <b>E-Mail</b></div>
+        </div>
+        <div class="card">
+          <h3>Door-to-Door</h3>
+          <p class="muted">
+            Wenn ich in deiner Gegend bin, kannst du mich jederzeit über die Visitenkarte erreichen – seriös & überprüfbar.
+          </p>
+          <div class="pill">📍 <b>56564 Neuwied</b> · <b>& Umgebung</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vertrauen">
+      <div class="trust">
+        <div class="card">
+          <h3>Identität prüfen</h3>
+          <p class="muted">
+            Wenn du unsicher bist: Kontaktiere mich direkt über Telefon/WhatsApp.
+            Du kannst außerdem meine Vertriebspartner-Informationen über meine <b>VP-KN</b> abgleichen:
+          </p>
+          <div class="pill">🔎 VP-KN: <b>70732501</b></div>
+          <p class="small" style="margin-top:10px">
+            Tipp: Ich kann dir am Telefon Schritt für Schritt erklären, woran du echte Vodafone Vertriebsansprache erkennst.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>So läuft’s ab</h3>
+          <p class="muted" style="margin-bottom:10px">
+            1) Anliegen kurz schildern · 2) Ich prüfe Optionen · 3) Du entscheidest in Ruhe.
+          </p>
+          <ul class="muted" style="margin:0; padding-left:18px; line-height:1.9">
+            <li>Keine versteckten Sachen</li>
+            <li>Keine unnötigen Verträge</li>
+            <li>Alles transparent erklärt</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="contact">
+        <div class="card">
+          <div class="content">
+            <h2 style="margin:0 0 8px 0;">Kontakt</h2>
+            <p class="muted" style="margin:0 0 10px 0;">
+              Schreib oder ruf direkt an – ich melde mich schnellstmöglich zurück.
+            </p>
+
+            <div class="kline">
+              <a class="btn primary" href="tel:015222178630">📞 0152 22178630</a>
+              <a class="btn ghost" href="mailto:david.alijaj.vd@gmail.com">✉️ davidalijaj.vd@gmail.com</a>
+              <a class="btn ghost" href="https://wa.me/4915222178630?text=Hallo%20David%2C%20ich%20habe%20eine%20Frage%20zu%20Vodafone." target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="small">
+              <b>Region:</b> 56564 Neuwied & Umgebung<br/>
+              <b>VP-KN:</b> 70732501<br/>
+              <b>Hinweis:</b> Selbstständiger Vertriebspartner im Auftrag der Vodafone GmbH.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="content">
+            <h2 style="margin:0 0 8px 0;">Schnellanfrage</h2>
+            <p class="muted" style="margin:0 0 10px 0;">
+              Für schnellere Hilfe: Bitte kurz senden, was du brauchst:
+            </p>
+            <ul class="muted" style="margin:0; padding-left:18px; line-height:1.9">
+              <li>Internet / Festnetz / Mobilfunk / Glasfaser?</li>
+              <li>Neukunde oder Bestandskunde?</li>
+              <li>PLZ/Ort (für Verfügbarkeit)</li>
+              <li>Optional: Screenshot / Schreiben / Routerfoto</li>
+            </ul>
+
+            <div class="divider"></div>
+            <p class="small">
+              Tipp: WhatsApp ist am schnellsten. Button rechts unten nutzen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container">
+      <div class="footer-grid">
+        <details id="impressum" open>
+          <summary>Impressum</summary>
+          <p>
+            <b>Angaben gemäß § 5 TMG</b><br/>
+            David Alijaj<br/>
+            56564 Neuwied<br/><br/>
+
+            <b>Kontakt</b><br/>
+            Telefon: 0152 22178630<br/>
+            E-Mail: davidalijaj.vd@gmail.com<br/><br/>
+
+            <b>Hinweis</b><br/>
+            Selbstständiger Vertriebspartner im Auftrag der Vodafone GmbH.<br/><br/>
+
+            <b>Haftung für Inhalte</b><br/>
+            Inhalte wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität übernehme ich keine Gewähr.
+          </p>
+        </details>
+
+        <details id="datenschutz">
+          <summary>Datenschutzerklärung (Kurzfassung)</summary>
+          <p>
+            Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf können technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, Browserdaten)
+            verarbeitet werden, um die Seite auszuliefern.<br/><br/>
+            Wenn du mich per Telefon, E-Mail oder WhatsApp kontaktierst, werden die von dir übermittelten Daten zur Bearbeitung deiner Anfrage genutzt.
+            Eine Weitergabe erfolgt nur, soweit dies zur Bearbeitung notwendig ist oder gesetzliche Pflichten bestehen.<br/><br/>
+            Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung im Rahmen der gesetzlichen Vorgaben.
+          </p>
+        </details>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> David Alijaj · davidalijaj.de
+      </div>
+    </footer>
+  </div>
+
+  <div class="float" aria-label="Schnellkontakt">
+    <a class="fab primary" href="https://wa.me/4915222178630?text=Hallo%20David%2C%20ich%20habe%20eine%20Frage%20zu%20Vodafone." target="_blank" rel="noopener">
+      <span>💬</span><span>WhatsApp</span>
+    </a>
+    <a class="fab" href="tel:015222178630">
+      <span>📞</span><span>Anrufen</span>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
